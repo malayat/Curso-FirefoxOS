@@ -1,0 +1,52 @@
+body {
+    background:url(img/ajedrez.png) #A98436 no-repeat left top;
+    background-size: 100%;
+}
+
+a {
+    color: #ccc;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: block;
+    padding: 30px 10px 10px 20px;
+    border-left: 10px solid #666;
+}
+
+a:hover {
+    background: #000;
+    border-left: 10px solid #333;
+    color: #fff;
+}
+
+div {    
+	float: left;
+    margin: 10px;
+    padding: 0px;
+    background-color: #666;
+    width: 350px;
+    text-align: center;
+    font-family: Arial, sans-serif;    
+    font-size: 24pt;
+}
+
+.caja4 {
+	height: 50px;
+	background-color: #ff4e00;
+	clear: both;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+}
+
+/*div {
+	
+	width: 320px;
+	margin-left: 50px;
+	float: left;
+	margin-bottom: 20px;
+	text-align: center;
+	padding: 20px;
+	margin-top: 20px;
+	background-color: #F2F1EE;
+}*/

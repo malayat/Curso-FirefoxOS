@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pregunta (jQuery)</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="zepto.min.js" ></script>
+        <script type="text/javascript">
+            $(function() {
+                localStorage.cuenta = (localStorage.cuenta || 0);
+                localStorage.cuenta++;
+                $('#cuenta').html(localStorage.cuenta);
+
+            });
+        </script>
+
+    </head>
+    <body>
+        Ha visitado la pagina <span id="cuenta"></span> veces.
+    </body>
+</html>

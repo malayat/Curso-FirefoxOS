@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pregunta (jQuery)</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="zepto.min.js" ></script>
+
+        <script type="text/javascript">
+            $(function() {
+                $('#boton').on('click', function() {
+                    if ($('#respuesta').val() === 'Cristobal') {
+                        $('#resultado').html("Correcto");
+                    } else {
+                        $('#resultado').html("In Correcto");
+                        //con '.cltext' se accede a la clase y permite insertar texto en value
+                        $('.cltext').val('prueba ota vez');
+                    }
+                });
+            });
+
+        </script>
+
+    </head>
+    <body>
+
+        <input type="text" id="respuesta" class="cltext" value="responde aqui">
+        <button type="button" id="boton">consultar</button>
+        <p><div id="resultado"></div>
+    </body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio Obligatorio M6</title>
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+    </head>
+    
+    <body>
+        <h2>Ejercicio Obligatorio Modulo 6. Propiedad Location</h2>
+
+        <!-- tabla con propiedades de Location -->
+        <table id="tabla"></table> 
+
+        <script type="text/javascript">
+
+            //obtenemos del arbol DOM la tabla
+            var tabla = document.getElementById("tabla");
+            //declaramos la variable i para el for
+            var i = 0;
+            //declaramos la variable analisis
+            var analisis;
+
+            //recorremos con el for por la propiedad location
+            for (i in location) {
+                // medianete typeof sabremos si el valor de la propiedad es un string, caso
+                //contrario guarda en la variable analisis el texto "no es imprimible"
+                analisis = typeof (location[i]) === "string" ? location[i] : "no es imprimible";
+                //coloca el HTML de la filas y columnas 
+                tabla.innerHTML += "<tr><td>" + i + "</td><td> = " + analisis + "</td></tr>";
+            }
+
+        </script>
+
+    </body>
+</html> 

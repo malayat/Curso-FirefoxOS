@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio Obligatorio M8 -Cronómetro- Alejandro Ayala</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="zepto.min.js" ></script>
+        <script type="text/javascript" src="touch.js" ></script>
+        <script type="text/javascript">
+            //metodo onload
+            $(function() {
+                //inicializando o recuperando el valor de cronometro
+                localStorage.c = (localStorage.c || "0.000");
+
+                //inicializando o recuperando los valores de los tiempos
+                localStorage.v = (localStorage.v || "<br>");
+
+                //t para los intervalos, cl para el DOM crono
+                var t, cl = $("#crono");
+                // lin para el DOM de lineas(div)
+                var lin = $("#lineas");
+
+                //suma(corre el cronometro) y almacena
+                function incr() {
+                    localStorage.c = +localStorage.c + 0.01;
+                }
+
+                function mostrar() {
+                    //muestra el valor sumado y lo arregla a tres
+                    cl.html((+localStorage.c).toFixed(3));
+                    //muestra los tiempos almacenados en la variable de memoria
+                    lin.html(localStorage.v);
+                }
+
+                //arranca el intervalo, llama a la funcion que incrementa y a 
+                //la funcion que muestra, con delay de 10 milisegundos
+                function arrancar() {
+                    t = setInterval(function() {
+                        incr();
+                        mostrar();
+                    }, 10);
+                }
+
+                //para el intervalo
+                function parar() {
+                    clearInterval(t);
+                    t = undefined;
+                    //guarda el ultimo valor del cronometro anadiendolo(+=) a memoria
+                    localStorage.v += cl.html() + '<br>';
+                    //vuelca el contenido de la memoria al html
+                    lin.html(localStorage.v);
+                }
+
+                //verifica si el intervalo no existe para arrancarlo, caso contrario lo detiene
+                function cambiar() {
+                    if (!t) {
+                        arrancar();
+                    } else {
+                        parar();
+                    }
+                }
+
+                function inicializar() {
+                    //solo si el intervalo no esta definido se inicializa
+                    if (!t) {
+                        localStorage.c = "0.000";
+                        localStorage.v = "<br>";
+                        mostrar();
+                    }
+                }
+
+                //clic en el boton arrancar/parar
+                $("#cambiar").on('click', cambiar);
+                //clic en el boton inicializar
+                $("#inicializar").on('click', inicializar);
+
+                //muestra el valor de la variable en memoria 
+                mostrar();
+
+                // eventos tactiles tap y swipe para parar/arrancar e inicializar 
+                cl.on('tap', function() {
+                    cambiar();
+                });
+                cl.on('swipe', function() {
+                    inicializar();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h2>Ejercicio Obligatorio M8 -Cronómetro- Alejandro Ayala</h2>
+        <h3><span id="crono"> 0.000 </span> segundos </h3>
+        <button type="button" id="cambiar"> arrancar/parar </button>
+        <button type="button" id="inicializar">  inicializar </button>
+        <div id="lineas"></div>
+    </body>
+</html>

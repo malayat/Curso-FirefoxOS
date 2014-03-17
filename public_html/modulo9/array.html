@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pregunta (jQuery)</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="zepto.min.js" ></script>
+
+        <script type="text/javascript">
+//            localStorage.abcd = (localStorage.abcd || "");
+            $(function() {
+                var r = $('#resultado');
+                var a = [];
+                
+//                if(localStorage.abcd) {
+//                    r.html("Es true");
+//                } else {
+//                    r.html("false ");
+//                    localStorage.abcd = "Ya tiene datos";
+//                }
+                
+//                var r = $('#resultado');
+                var r2 = $('#resultado2');
+                var r3 = $('#resultado3');
+//
+             
+             
+
+                a.push([321.21, -0.221]);
+                a.push([-73.95, 4.68]);
+
+                var stringJSON = JSON.stringify(a);
+                r.html("El stringify es: " +stringJSON);
+
+
+//                
+                var arrayJ = JSON.parse(stringJSON);
+                r2.html("lat o " +arrayJ[0][0] +" long o " +arrayJ[0][1]);
+                
+//                for(var i in arrayJ) {
+//                    mostrar(arrayJ[i], arrayJ[+i + 1]);
+                    
+                    
+//                }
+                
+//                r2.html(""+arrayJ[1]);
+                
+//                function mostrar(origen, destino) {
+//                    if(destino !== undefined) {
+//                        r3.append("Origen: "+origen +" Destino: " +destino);
+//                    }
+//                    
+//                    
+//                }
+//                
+//                r3.html("Asi como: " +a[0][0]);
+
+
+//                var a = [{lat: -10.30, lng: 0.452}, {lat: 92.212, lng: 2.00021}];                
+//
+//                var json = JSON.stringify(a);
+//
+//                $.each(JSON.parse(json), function(idx, obj) {
+//                    alert("lat: "+obj.lat +" lng: "+obj.lng);
+//                });
+
+
+
+
+
+            });
+
+        </script>
+
+    </head>
+    <body>
+        <p><div id="resultado">Algo</div>
+        <p><div id="resultado2">R2</div>
+        <p><div id="resultado3"></div>
+    </body>
+
+</html>

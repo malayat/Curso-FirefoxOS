@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cronometro version 1</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="zepto.min.js" ></script>
+
+        <script type="text/javascript">
+            $(function() {
+                var t, cl = $('#crono');
+                //muestra el valor sumado y lo redondea a dos decimales
+                function mostrar() {
+                    cl.html((+cl.html() + 0.01).toFixed(3));
+                }
+                //arranca el intervalo
+                function arrancar() {
+                    t = setInterval(mostrar, 10);
+                }
+                //para el intervalo
+                function parar() {
+                    clearInterval(t);
+                    t = undefined;
+                    //$('#lineas').append('<p>' + cl.html() + '</p>');
+                    //guarda el ultimo valor del cronometro anadiendo(append) al texto original
+                    $('#lineas').append(cl.html() + '<br>');
+                }
+                //verifica si el intervalo no existe para arrancarlo, caso contrario lo detiene
+                function cambiar() {
+                    if (!t) {
+                        arrancar();
+                    } else {
+                        parar();
+                    }
+                }
+                //clic en el boton arrancar/parar
+                $('#start').on('click', cambiar);
+                //clic en el boton inicializar
+                $('#resete').on('click', function() {
+                    if (!t) {
+                        //solo si el intervalo esta limpio se inicializa
+                        cl.html('00.000');
+                        // y se borra el historial de tiempos
+                        $('#lineas').html('');
+                    }
+
+
+                });
+
+            });
+        </script>
+
+    </head>
+    <body>
+        <h2>Cronometro</h2>
+        <h2><span id="crono">00.000</span> segundos</h2>
+        <button type="button" id="start">arrancar/parar</button>
+        <button type="button" id="resete">inicializar</button>
+        <p></p>
+        <div id="lineas"></div>
+    </body>
+</html>

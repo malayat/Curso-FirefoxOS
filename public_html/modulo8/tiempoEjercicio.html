@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reloj</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <script type="text/javascript">
+            var estado = true;
+            function empezar() {
+                var intervalo;
+                var i = document.getElementById("fecha");
+                i.addEventListener('click', function() {
+                    if (estado) {
+                        intervalo = setInterval(mostrar_fecha, 500);
+                        estado = false;
+                    } else {
+                        clearInterval(intervalo);
+                        iniciar();
+                        estado = true;
+                    }
+                });
+
+            }
+
+            function mostrar_fecha() {
+                var t = new Date();
+                document.getElementById("fecha").innerHTML = t.toLocaleTimeString();
+            }
+
+            function iniciar() {
+                document.getElementById("fecha").innerHTML = "Empezar";
+            }
+
+        </script>
+    </head>
+    <body onload="empezar()">
+        <div id="fecha" >Empezar</div>
+    </body>
+</html>

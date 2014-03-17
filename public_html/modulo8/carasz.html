@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Caras</title>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="zepto.min.js" ></script>
+        <script type="text/javascript">
+            $(function() {
+                var i = $('#img');
+                i.on('dblclick', function() {
+                    i.attr('src', 'wait.png')
+                });
+                i.on('click', function() {
+                    i.attr('src', 'scare.png')
+                });
+
+            });
+        </script>
+
+    </head>
+    <body>
+        <img src="wait.png" id="img">
+    </body>
+</html>
